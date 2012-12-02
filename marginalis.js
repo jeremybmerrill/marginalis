@@ -24,6 +24,7 @@ $(function(){
       curve.attr("stroke",'#555'); 
       curve.attr("stroke-width",3); 
       curve.attr("fill", "none");
+      curve.attr("class", "marginalis-arrow");
 
       var arrow_line_length = 10
 
@@ -37,9 +38,11 @@ $(function(){
       var horizontal_arrow_line = paper.path("M" + (target_coordinates[0] )+ "," + (target_coordinates[1]) + "L" + (target_coordinates[0] - arrow_line_length + (vertical_arrow_control_line/1.414) ) + "," + (target_coordinates[1] + vertical_arrow_control_line));
       horizontal_arrow_line.attr("stroke-width",3);
       horizontal_arrow_line.attr("stroke",'#555'); 
+      horizontal_arrow_line.attr("class", "marginalis-arrow");
       var vertical_arrow_line = paper.path("M" + (target_coordinates[0] + horizontal_arrow_control_line )+ "," + (target_coordinates[1] + arrow_line_length) + "L" + (target_coordinates[0] ) + "," + (target_coordinates[1]));
       vertical_arrow_line.attr("stroke-width",3); 
       vertical_arrow_line.attr("stroke",'#555'); 
+      vertical_arrow_line.attr("class", "marginalis-arrow");
       //Mbeginning x, y; Qcontrol point x, y, end x, y
 
     }
@@ -70,7 +73,11 @@ $(function(){
       mouseovered_marginalis.css("height", new_height);
       mouseovered_marginalis.css("overflow", "visible");
       mouseovered_marginalis.addClass("selected"); //change font styles
+
+      //fade other stuff
       $('article p').not('.marginalis').addClass('faded_text');
+      $('path').attr("stroke", "#eee");
+
       mouseovered_marginalis.find('span.marginalis-expander').hide();
     });
   });
@@ -85,7 +92,10 @@ $(function(){
       mouseovered_marginalis.css("overflow", "hidden");
       mouseovered_marginalis.css("top", pertains_to.offset()["top"] - $('article').offset()["top"] );        
       mouseovered_marginalis.css("height", 3.2 * marginalia_line_height);
+
       $('article p').not('.marginalis').removeClass('faded_text');
+      $('path').attr("stroke", "#555");
+
       mouseovered_marginalis.find('span.marginalis-expander').show();
     });
   });
