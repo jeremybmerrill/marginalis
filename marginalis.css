@@ -1,0 +1,43 @@
+body{
+  width: 100%;
+}
+div#main{
+  width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+}
+article {
+  width: 505px;
+  font-size: 17px;
+  line-height: 25px;
+  position: relative;
+  font-family: 'georgia, times, serif';
+}
+article p.marginalium.selected{
+  font-size: 18px;
+  line-height: 23px;
+  overflow: visible;
+}
+article p.marginalium{
+  font-size: 12px;
+  line-height: 16px;
+  width: 285px;
+  position: absolute;
+  left: 515px;
+}
+article p.marginalium span.marginalium-expander{
+  font-size: 18px;
+  color: blue;
+  cursor: pointer;
+  text-decoration: underline;
+  position: absolute;
+  bottom: 0px;
+  vertical-align: bottom;
+  left: 0px;
+}
+article p.faded_text{
+  color: #eee;
+}
+article p.faded_text a{
+  color: #bdf;
+}

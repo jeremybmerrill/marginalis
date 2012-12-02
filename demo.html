@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+  <script type="text/javascript" src="raphael-min.js"></script>
+  <script type="text/javascript" src="underscore-min.js"></script>
+  <script type="text/javascript" src="marginaliorum.js"></script>
+  <link rel="stylesheet" type="text/css" href="marginaliorum.css">
+</head>
+<body>
+<div id="main">
+  <h1>Marginaliorum Test</h1>
+  <article>
+    <p id="target1">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras feugiat hendrerit hendrerit. Ut vitae leo lectus, vitae faucibus nulla. Maecenas fermentum lectus nec enim lacinia aliquam. In hac habitasse platea dictumst. Duis diam leo, sagittis eget iaculis quis, viverra a leo. Nulla quis sollicitudin lorem. Proin venenatis, augue eu imperdiet vestibulum, augue felis iaculis lacus, vel porta leo nibh in massa. Praesent fermentum consectetur luctus. Ut sapien orci, lobortis et interdum id, viverra et metus. Maecenas semper ultrices mauris, at facilisis mauris interdum ac. Proin non elit orci. Vivamus id elit turpis. Mauris posuere ipsum in libero viverra vel fermentum leo viverra. In ac posuere leo.</p>
+    <p id="p2">Integer porta, velit a vehicula semper, diam velit pharetra justo, sit amet tristique urna est in augue. Cras eu diam nec justo pulvinar <span id="interdum">volutpat</span> at in mi. Curabitur non volutpat lacus. Proin eu feugiat erat. Cras risus enim, lacinia non elementum a, cursus sit amet lectus. Ut lobortis elementum est quis tempus. Quisque consectetur dapibus ipsum, eget vulputate arcu aliquam sit amet.</p>
+    <p class="marginalium" data-target="#p2">
+      I pertain to p#p2! Salve, nomine mihi Sextus est. Ego Romanus sum. Pater mihi consul est! Euge! Electus fuit heri. Euge! Nomine sororis mihi Sexta est. Laeta est. I pledge allegience to the flag of the United States of America and to the Republic for which it stands, one nation, under God, with liberty and justice for all.
+    </p>
+    <p id="p3">Donec sed nisl metus. Cras non ultricies quam. Suspendisse tempus mollis lacinia. Donec volutpat suscipit pretium. In a purus sed lacus ultrices ultrices. Nulla nec lectus metus. Nunc nec lobortis lacus. Morbi aliquam accumsan metus, sit amet semper est interdum.</p>
+    <p>Aliquam <a href="#target1">viverra turpis</a> id dolor pharetra auctor. Integer semper congue dolor sed aliquam. Morbi non risus eget erat ultricies imperdiet vitae a purus. Vivamus vel libero magna, vel mollis elit. Donec hendrerit vehicula augue sit amet pellentesque. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Integer libero erat, adipiscing in blandit a, consequat id quam. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Aenean et porttitor est. Suspendisse scelerisque mauris a elit condimentum nec imperdiet tortor scelerisque. Phasellus felis orci, interdum vel commodo vel, tincidunt at massa. Nullam turpis ipsum, pulvinar sit amet vulputate vitae, vehicula et tellus.</p>
+    <p>Nam vel dolor quam, eu facilisis odio. Mauris imperdiet tincidunt vehicula. Suspendisse tristique consequat orci quis feugiat. Maecenas condimentum feugiat nunc sit amet dignissim. Ut condimentum augue sit amet eros dapibus ut scelerisque magna suscipit. Donec et gravida metus. <a href="http://google.com">Phasellus</a> venenatis hendrerit quam non consequat. Proin luctus pharetra condimentum. Sed nulla augue, rhoncus non malesuada quis, venenatis eu lorem. Vivamus porttitor erat eget lorem egestas interdum. Etiam euismod, nisi a ornare ornare, velit leo pharetra massa, eget ullamcorper erat felis ut ligula. Phasellus neque dui, egestas at pellentesque non, bibendum non nunc. Nam venenatis nisl in leo faucibus nec dapibus urna cursus. Suspendisse eget feugiat neque.</p>
+    <p>Morbi vel diam sed ligula cursus luctus. Mauris magna eros, rhoncus nec accumsan ut, congue ac tortor. Aenean dignissim lorem vitae ligula imperdiet sit amet auctor est pulvinar. Curabitur id erat tortor, vel ultricies mauris. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Praesent ut risus nec urna laoreet tincidunt quis id risus. Vivamus iaculis auctor accumsan. Pellentesque orci ante, facilisis tincidunt blandit pretium, euismod vel neque. Cras mattis nisi non magna consectetur porttitor et vitae quam. Aenean rutrum mattis risus a adipiscing. Sed tincidunt leo quis ipsum suscipit ut sollicitudin leo volutpat. Suspendisse quis purus eu nulla varius fermentum quis et augue.</p>
+    <p>Curabitur in massa sapien, ut accumsan ante. Vestibulum ultricies tortor in nisi interdum eget ullamcorper enim volutpat. Ut eget posuere elit. Suspendisse ante dolor, dapibus eget interdum non, congue et enim. Sed pharetra cursus odio, quis consequat purus lobortis ut. Mauris auctor pretium egestas. Quisque vel eros ac velit euismod sodales. Donec varius consectetur sapien. Nullam id magna eros.</p>
+    <p>Praesent dapibus lectus et orci iaculis varius non nec erat. Praesent venenatis pellentesque turpis, vitae pellentesque lacus rutrum eget. Lorem ipsum dolor sit amet, consectetur adipiscing elit. In urna enim, tristique at viverra ultricies, tristique vitae neque. Nullam sodales, augue ut malesuada bibendum, nibh nisl vulputate metus, quis malesuada nisl nisi non quam. Nam porta, magna eu commodo rutrum, velit erat mollis eros, eget vehicula ipsum libero ut justo. Fusce at sem quis urna fermentum vestibulum eget in turpis. Morbi eros libero, <a href="#interdum">lobortis</a> eget posuere vel, tristique viverra erat.</p>
+    <p>Vestibulum tempus, sapien sit amet imperdiet rutrum, est libero consequat elit, non sagittis tellus mi ac orci. Aliquam eu enim tortor, nec sollicitudin ante. Aenean elementum tortor vel metus tincidunt ornare aliquam tellus malesuada. Suspendisse suscipit rhoncus nunc, eget congue lorem viverra quis. Nulla imperdiet sagittis nibh viverra varius. Nullam non ligula lectus. Proin lectus elit, mattis et feugiat tincidunt, ornare vel turpis. Donec imperdiet nibh ut leo dignissim id eleifend augue cursus. Integer aliquet porta iaculis. Sed dapibus sodales felis, quis lacinia orci tristique id. Ut et lorem est.</p>
+    <p>Duis imperdiet, est sed rhoncus hendrerit, dolor ligula volutpat massa, at faucibus purus arcu at magna. Sed ut sapien ipsum, ut iaculis purus. Nunc id nibh ac felis pharetra tincidunt. Nunc at scelerisque leo. Etiam a odio nisl. Ut ac augue sed sem blandit pharetra. Vestibulum in lectus orci, quis commodo nisi. Maecenas sem neque, vestibulum et vestibulum non, sagittis a orci. Integer facilisis pharetra urna id hendrerit. Pellentesque feugiat, mi sit amet euismod sodales, enim lectus tincidunt est, vitae gravida libero tortor id augue. Maecenas ut magna lorem.</p>
+    <p class="marginalium" data-target="#p3">
+      I pertain to p#p3! Salve, nomine mihi Sextus est. Ego Romanus sum. Pater mihi consul est! Euge! Electus fuit heri. Euge! Nomine sororis mihi Sexta est. Laeta est.
+    </p>
+
+  </article>
+</div>
+</body>
+</html>
+
