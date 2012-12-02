@@ -44,49 +44,49 @@ $(function(){
 
     }
   });
-  _($('article p.marginalium')).each(function(p_marginalium){ 
-    var pertains_to = $($(p_marginalium).data('target'));
+  _($('article p.marginalis')).each(function(p_marginalis){ 
+    var pertains_to = $($(p_marginalis).data('target'));
     if(pertains_to.length == 0){
       throw new TypeError("The target of one of your marginalia could not be found!");
     }
-    $(p_marginalium).css("top", (pertains_to.offset()["top"]) - $('article').offset()["top"] );
+    $(p_marginalis).css("top", (pertains_to.offset()["top"]) - $('article').offset()["top"] );
 
-    marginalia_line_height = parseInt($(p_marginalium).css("line-height"));
-    if($(p_marginalium).height() > 3.2 * marginalia_line_height){
-      $(p_marginalium).height(3.2 * marginalia_line_height);
-      $(p_marginalium).css("overflow", "hidden");
-      $(p_marginalium).html( $(p_marginalium).html() + "<span class='marginalium-expander'>…</span>");
+    marginalia_line_height = parseInt($(p_marginalis).css("line-height"));
+    if($(p_marginalis).height() > 3.2 * marginalia_line_height){
+      $(p_marginalis).height(3.2 * marginalia_line_height);
+      $(p_marginalis).css("overflow", "hidden");
+      $(p_marginalis).html( $(p_marginalis).html() + "<span class='marginalis-expander'>…</span>");
     }
   });
 
   var scale_factor = 1.5
-  _($('article p.marginalium')).each(function(marginalium){
-    $(marginalium).on('mouseover', function(e){
-      mouseovered_marginalium = $(e.target)
-      mouseovered_marginalium.css("width", (parseInt(mouseovered_marginalium.css("width")) + 140));
-      mouseovered_marginalium.css("left", (parseInt(mouseovered_marginalium.css("left")) - 70));
-      new_height = mouseovered_marginalium.height() * scale_factor
-      mouseovered_marginalium.css("top", (parseInt(mouseovered_marginalium.css("top")) - (new_height/2)));
-      mouseovered_marginalium.css("height", new_height);
-      mouseovered_marginalium.css("overflow", "visible");
-      mouseovered_marginalium.addClass("selected"); //change font styles
-      $('article p').not('.marginalium').addClass('faded_text');
-      mouseovered_marginalium.find('span.marginalium-expander').hide();
+  _($('article p.marginalis')).each(function(marginalis){
+    $(marginalis).on('mouseover', function(e){
+      mouseovered_marginalis = $(e.target)
+      mouseovered_marginalis.css("width", (parseInt(mouseovered_marginalis.css("width")) + 140));
+      mouseovered_marginalis.css("left", (parseInt(mouseovered_marginalis.css("left")) - 70));
+      new_height = mouseovered_marginalis.height() * scale_factor
+      mouseovered_marginalis.css("top", (parseInt(mouseovered_marginalis.css("top")) - (new_height/2)));
+      mouseovered_marginalis.css("height", new_height);
+      mouseovered_marginalis.css("overflow", "visible");
+      mouseovered_marginalis.addClass("selected"); //change font styles
+      $('article p').not('.marginalis').addClass('faded_text');
+      mouseovered_marginalis.find('span.marginalis-expander').hide();
     });
   });
 
-  _($('article p.marginalium')).each(function(marginalium){
-    $(marginalium).on('mouseout', function(e){
-      mouseovered_marginalium = $(e.target)
-      mouseovered_marginalium.removeClass("selected");
-      mouseovered_marginalium.css("width", (parseInt(mouseovered_marginalium.css("width")) - 140));
-      mouseovered_marginalium.css("left", (parseInt(mouseovered_marginalium.css("left")) + 70));
-      var pertains_to = $(mouseovered_marginalium.data('target'));
-      mouseovered_marginalium.css("overflow", "hidden");
-      mouseovered_marginalium.css("top", pertains_to.offset()["top"] - $('article').offset()["top"] );        
-      mouseovered_marginalium.css("height", 3.2 * marginalia_line_height);
-      $('article p').not('.marginalium').removeClass('faded_text');
-      mouseovered_marginalium.find('span.marginalium-expander').show();
+  _($('article p.marginalis')).each(function(marginalis){
+    $(marginalis).on('mouseout', function(e){
+      mouseovered_marginalis = $(e.target)
+      mouseovered_marginalis.removeClass("selected");
+      mouseovered_marginalis.css("width", (parseInt(mouseovered_marginalis.css("width")) - 140));
+      mouseovered_marginalis.css("left", (parseInt(mouseovered_marginalis.css("left")) + 70));
+      var pertains_to = $(mouseovered_marginalis.data('target'));
+      mouseovered_marginalis.css("overflow", "hidden");
+      mouseovered_marginalis.css("top", pertains_to.offset()["top"] - $('article').offset()["top"] );        
+      mouseovered_marginalis.css("height", 3.2 * marginalia_line_height);
+      $('article p').not('.marginalis').removeClass('faded_text');
+      mouseovered_marginalis.find('span.marginalis-expander').show();
     });
   });
 });

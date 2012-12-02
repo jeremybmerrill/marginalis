@@ -13,19 +13,19 @@ article {
   position: relative;
   font-family: 'georgia, times, serif';
 }
-article p.marginalium.selected{
+article p.marginalis.selected{
   font-size: 18px;
   line-height: 23px;
   overflow: visible;
 }
-article p.marginalium{
+article p.marginalis{
   font-size: 12px;
   line-height: 16px;
   width: 285px;
   position: absolute;
   left: 515px;
 }
-article p.marginalium span.marginalium-expander{
+article p.marginalis span.marginalis-expander{
   font-size: 18px;
   color: blue;
   cursor: pointer;
