@@ -12,6 +12,7 @@ article {
   line-height: 25px;
   position: relative;
   font-family: 'georgia, times, serif';
+  color: #222;
 }
 article p.marginalis.selected{
   font-size: 18px;

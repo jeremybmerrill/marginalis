@@ -11,7 +11,9 @@ Written text has all sorts of non-linear tools, like writing or drawing in the m
 ###TODO:
 1. Fancy-pants drop caps
 2. Pre-parse/POS-tag the text. Shrink and fade all words that aren't nouns and verbs. This would be an interesting experiment into the Strunk-and-White-ian claim that one should write with nouns and verbs, not adjectives or adverbs.
-3. Optional footnote-like superscripts to allow a marginalis to pertain to a sub-paragraph level element.
+3. Visibly link marginalia with their referents.
+  - Footnote-like superscripts to allow a marginalis to pertain to a sub-paragraph level element, or, 
+  - Hide all but the referent of the mouseovered marginalis. (Requires repositioning the text.)
 4. Cope with multiple marginalia pertaining to one element. (Don't have them cover each other up.)
 5. Nested marginalia. (Yo dawg, I herd you liekd margin notes, so I put margin notes in your margin notes.)
 6. When a margin note is clicked, center it. (Perhaps only for long margin notes)
