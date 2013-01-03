@@ -36,6 +36,6 @@ SOFTWARE.
 */
 ?>
 <?php
-wp_enqueue_style("marginalis", plugins_url('marginalis.css' , dirname(__FILE__) ));
-wp_enqueue_script("marginalis", plugins_url('marginalis.js' , dirname(__FILE__) ));
+wp_enqueue_style("marginalis", plugins_url('marginalis/marginalis.css' , dirname(__FILE__) ));
+wp_enqueue_script("marginalis", plugins_url('marginalis/marginalis.js' , dirname(__FILE__)), array(), false, true );
 ?>
