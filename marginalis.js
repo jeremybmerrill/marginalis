@@ -1,4 +1,7 @@
 $(function(){
+
+  var ARROW_COLOR = "#999"
+
   var article = $('article')
   article_left = article.offset()["left"];
   article_bottom = article.offset()["top"] + article.height();
@@ -21,7 +24,7 @@ $(function(){
       curve_string += " Q" + "0," + (Math.abs(source_coordinates[1] + target_coordinates[1])/ location_of_control_point_coefficient) + ", "; //randomize 2
       curve_string += target_coordinates[0] + "," + target_coordinates[1];
       var curve = paper.path(curve_string);
-      curve.attr("stroke",'#555'); 
+      curve.attr("stroke",ARROW_COLOR); 
       curve.attr("stroke-width",3); 
       curve.attr("fill", "none");
       curve.attr("class", "marginalis-arrow");
@@ -37,11 +40,11 @@ $(function(){
       }
       var horizontal_arrow_line = paper.path("M" + (target_coordinates[0] )+ "," + (target_coordinates[1]) + "L" + (target_coordinates[0] - arrow_line_length + (vertical_arrow_control_line/1.414) ) + "," + (target_coordinates[1] + vertical_arrow_control_line));
       horizontal_arrow_line.attr("stroke-width",3);
-      horizontal_arrow_line.attr("stroke",'#555'); 
+      horizontal_arrow_line.attr("stroke",ARROW_COLOR); 
       horizontal_arrow_line.attr("class", "marginalis-arrow");
       var vertical_arrow_line = paper.path("M" + (target_coordinates[0] + horizontal_arrow_control_line )+ "," + (target_coordinates[1] + arrow_line_length) + "L" + (target_coordinates[0] ) + "," + (target_coordinates[1]));
       vertical_arrow_line.attr("stroke-width",3); 
-      vertical_arrow_line.attr("stroke",'#555'); 
+      vertical_arrow_line.attr("stroke",ARROW_COLOR); 
       vertical_arrow_line.attr("class", "marginalis-arrow");
       //Mbeginning x, y; Qcontrol point x, y, end x, y
 
@@ -62,39 +65,61 @@ $(function(){
     }
   });
 
+
+  //highlight a marginalis
   var scale_factor = 1.5
   _($('article p.marginalis')).each(function(marginalis){
     $(marginalis).on('mouseover', function(e){
-      mouseovered_marginalis = $(e.target)
+      if( $(e.target).hasClass("marginalis")){
+        mouseovered_marginalis = $(e.target);
+      }else{
+        mouseovered_marginalis = $($(e.target).parent('.marginalis'));
+      }
+
       mouseovered_marginalis.css("width", (parseInt(mouseovered_marginalis.css("width")) + 140));
-      mouseovered_marginalis.css("left", (parseInt(mouseovered_marginalis.css("left")) - 70));
+      //mouseovered_marginalis.css("left", (parseInt(mouseovered_marginalis.css("left")) - 70));
       new_height = mouseovered_marginalis.height() * scale_factor
       mouseovered_marginalis.css("top", (parseInt(mouseovered_marginalis.css("top")) - (new_height/2)));
       mouseovered_marginalis.css("height", new_height);
+
       mouseovered_marginalis.css("overflow", "visible");
       mouseovered_marginalis.addClass("selected"); //change font styles
 
       //fade other stuff
-      $('article p').not('.marginalis').addClass('faded_text');
       $('path').attr("stroke", "#eee");
+      //$('article p').not('.marginalis').addClass('faded_text');
+      $('article p').addClass('faded_text');
+      mouseovered_marginalis.removeClass('faded_text')
+      var pertains_to = $(mouseovered_marginalis.data('target'));
+      pertains_to.addClass('not_faded_text');
 
       mouseovered_marginalis.find('span.marginalis-expander').hide();
     });
   });
 
+  //return to normal view.
   _($('article p.marginalis')).each(function(marginalis){
     $(marginalis).on('mouseout', function(e){
-      mouseovered_marginalis = $(e.target)
+      if( $(e.target).hasClass("marginalis")){
+        mouseovered_marginalis = $(e.target);
+      }else{
+        mouseovered_marginalis = $($(e.target).parent('.marginalis'));
+      }
       mouseovered_marginalis.removeClass("selected");
+
       mouseovered_marginalis.css("width", (parseInt(mouseovered_marginalis.css("width")) - 140));
-      mouseovered_marginalis.css("left", (parseInt(mouseovered_marginalis.css("left")) + 70));
+      //mouseovered_marginalis.css("left", (parseInt(mouseovered_marginalis.css("left")) + 70));
       var pertains_to = $(mouseovered_marginalis.data('target'));
       mouseovered_marginalis.css("overflow", "hidden");
       mouseovered_marginalis.css("top", pertains_to.offset()["top"] - $('article').offset()["top"] );        
       mouseovered_marginalis.css("height", 3.2 * marginalia_line_height);
 
-      $('article p').not('.marginalis').removeClass('faded_text');
+      //unfade everything else
       $('path').attr("stroke", "#555");
+      $('article p').removeClass('faded_text');
+      var pertains_to = $(mouseovered_marginalis.data('target'));
+      pertains_to.removeClass('not_faded_text');
+
 
       mouseovered_marginalis.find('span.marginalis-expander').show();
     });
