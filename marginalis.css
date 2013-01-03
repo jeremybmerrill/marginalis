@@ -42,3 +42,25 @@ article p.faded_text{
 article p.faded_text a{
   color: #bdf;
 }
+article p.faded_text span.marginalis-expander{
+  color: #bdf;
+}
+article span.faded_text{
+  color: #eee;
+}
+
+
+/* the "normal" colors */
+article .not_faded_text{
+  color: #222;
+}
+article p.not_faded_text{
+  color: #222;
+}
+article .not_faded_text a{
+  color: blue;
+}
+article a.not_faded_text{
+  color: blue;
+}
+
