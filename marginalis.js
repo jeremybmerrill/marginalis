@@ -1,8 +1,8 @@
-$(function(){
+jQuery(function(){
 
   var ARROW_COLOR = "#999"
 
-  var article = $('article')
+  var article = jQuery('article')
   article_left = article.offset()["left"];
   article_bottom = article.offset()["top"] + article.height();
   article_top = article.offset()["top"];
@@ -11,13 +11,14 @@ $(function(){
   //var conline1 = paper.path("M100,500L0,250");
   //var conline2 = paper.path("M100,0L0,250");
   //var conline3 = paper.path("M50,125l0,250");
-  _($('a')).each(function(self_a){
+  _(jQuery('article a')).each(function(self_a){
     split_anchor = self_a.href.split("#");
     if(split_anchor.length >= 2){
       var target_id = "#" + split_anchor[split_anchor.length-1];
-      var target_el = $(target_id);
-      var source_coordinates = [article_left,$(self_a).offset()["top"] ];
-      var target_coordinates = [article_left -15,$(target_el).offset()["top"] +15 ]; //todo scale 15 to fit arrow length
+      var target_el = jQuery(target_id);
+      console.log(target_id);
+      var source_coordinates = [article_left,jQuery(self_a).offset()["top"] ];
+      var target_coordinates = [article_left -15,jQuery(target_el).offset()["top"] +15 ]; //todo scale 15 to fit arrow length
 
       location_of_control_point_coefficient = 3 + (Math.random() -.5); //increase this the farther left the target element is.
       var curve_string = "M" + source_coordinates[0] + "," + source_coordinates[1];
@@ -50,30 +51,30 @@ $(function(){
 
     }
   });
-  _($('article p.marginalis')).each(function(p_marginalis){ 
-    var pertains_to = $($(p_marginalis).data('target'));
+  _(jQuery('article p.marginalis')).each(function(p_marginalis){ 
+    var pertains_to = jQuery(jQuery(p_marginalis).data('target'));
     if(pertains_to.length == 0){
-      throw new TypeError("The target of one of your marginalia could not be found!");
+      throw new TypeError("The target of one of your marginalia " + jQuery(p_marginalis).data('target') + " could not be found!");
     }
-    $(p_marginalis).css("top", (pertains_to.offset()["top"]) - $('article').offset()["top"] );
+    jQuery(p_marginalis).css("top", (pertains_to.offset()["top"]) - jQuery('article').offset()["top"] );
 
-    marginalia_line_height = parseInt($(p_marginalis).css("line-height"));
-    if($(p_marginalis).height() > 3.2 * marginalia_line_height){
-      $(p_marginalis).height(3.2 * marginalia_line_height);
-      $(p_marginalis).css("overflow", "hidden");
-      $(p_marginalis).html( $(p_marginalis).html() + "<span class='marginalis-expander'>…</span>");
+    marginalia_line_height = parseInt(jQuery(p_marginalis).css("line-height"));
+    if(jQuery(p_marginalis).height() > 3.2 * marginalia_line_height){
+      jQuery(p_marginalis).height(3.2 * marginalia_line_height);
+      jQuery(p_marginalis).css("overflow", "hidden");
+      jQuery(p_marginalis).html( jQuery(p_marginalis).html() + "<span class='marginalis-expander'>…</span>");
     }
   });
 
 
   //highlight a marginalis
   var scale_factor = 1.5
-  _($('article p.marginalis')).each(function(marginalis){
-    $(marginalis).on('mouseover', function(e){
-      if( $(e.target).hasClass("marginalis")){
-        mouseovered_marginalis = $(e.target);
+  _(jQuery('article p.marginalis')).each(function(marginalis){
+    jQuery(marginalis).on('mouseover', function(e){
+      if( jQuery(e.target).hasClass("marginalis")){
+        mouseovered_marginalis = jQuery(e.target);
       }else{
-        mouseovered_marginalis = $($(e.target).parent('.marginalis'));
+        mouseovered_marginalis = jQuery(jQuery(e.target).parent('.marginalis'));
       }
 
       mouseovered_marginalis.css("width", (parseInt(mouseovered_marginalis.css("width")) + 140));
@@ -86,11 +87,11 @@ $(function(){
       mouseovered_marginalis.addClass("selected"); //change font styles
 
       //fade other stuff
-      $('path').attr("stroke", "#eee");
-      //$('article p').not('.marginalis').addClass('faded_text');
-      $('article p').addClass('faded_text');
+      jQuery('path').attr("stroke", "#eee");
+      //jQuery('article p').not('.marginalis').addClass('faded_text');
+      jQuery('article p').addClass('faded_text');
       mouseovered_marginalis.removeClass('faded_text')
-      var pertains_to = $(mouseovered_marginalis.data('target'));
+      var pertains_to = jQuery(mouseovered_marginalis.data('target'));
       pertains_to.addClass('not_faded_text');
 
       mouseovered_marginalis.find('span.marginalis-expander').hide();
@@ -98,26 +99,26 @@ $(function(){
   });
 
   //return to normal view.
-  _($('article p.marginalis')).each(function(marginalis){
-    $(marginalis).on('mouseout', function(e){
-      if( $(e.target).hasClass("marginalis")){
-        mouseovered_marginalis = $(e.target);
+  _(jQuery('article p.marginalis')).each(function(marginalis){
+    jQuery(marginalis).on('mouseout', function(e){
+      if( jQuery(e.target).hasClass("marginalis")){
+        mouseovered_marginalis = jQuery(e.target);
       }else{
-        mouseovered_marginalis = $($(e.target).parent('.marginalis'));
+        mouseovered_marginalis = jQuery(jQuery(e.target).parent('.marginalis'));
       }
       mouseovered_marginalis.removeClass("selected");
 
       mouseovered_marginalis.css("width", (parseInt(mouseovered_marginalis.css("width")) - 140));
       //mouseovered_marginalis.css("left", (parseInt(mouseovered_marginalis.css("left")) + 70));
-      var pertains_to = $(mouseovered_marginalis.data('target'));
+      var pertains_to = jQuery(mouseovered_marginalis.data('target'));
       mouseovered_marginalis.css("overflow", "hidden");
-      mouseovered_marginalis.css("top", pertains_to.offset()["top"] - $('article').offset()["top"] );        
+      mouseovered_marginalis.css("top", pertains_to.offset()["top"] - jQuery('article').offset()["top"] );        
       mouseovered_marginalis.css("height", 3.2 * marginalia_line_height);
 
       //unfade everything else
-      $('path').attr("stroke", "#555");
-      $('article p').removeClass('faded_text');
-      var pertains_to = $(mouseovered_marginalis.data('target'));
+      jQuery('path').attr("stroke", "#555");
+      jQuery('article p').removeClass('faded_text');
+      var pertains_to = jQuery(mouseovered_marginalis.data('target'));
       pertains_to.removeClass('not_faded_text');
 
 
