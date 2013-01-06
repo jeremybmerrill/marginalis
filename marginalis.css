@@ -1,33 +1,28 @@
 body{
   width: 100%;
 }
-div#main{
-  width: 1000px;
-  margin-left: auto;
-  margin-right: auto;
-}
-article {
-  width: 505px;
-  font-size: 17px;
-  line-height: 25px;
+article.use-marginalis {
+  width: 50%;
+  /*font-size: 1em;*/
+  line-height: 1.52em;
   position: relative;
   font-family: 'georgia, times, serif';
   color: #222;
 }
-article p.marginalis.selected{
-  font-size: 18px;
-  line-height: 23px;
+article.use-marginalis p.marginalis.selected{
+  font-size: 1em;
+  line-height: 1.28em;
   overflow: visible;
 }
-article p.marginalis{
-  font-size: 12px;
-  line-height: 16px;
-  width: 285px;
+article.use-marginalis p.marginalis{
+  font-size: 0.66em;
+  line-height: 1.33em; /* for some reason, ems here are relative to the font size in this margin note */
+  width: 50%;
   position: absolute;
-  left: 515px;
+  left: 102%;
 }
-article p.marginalis span.marginalis-expander{
-  font-size: 18px;
+article.use-marginalis p.marginalis span.marginalis-expander{
+  font-size: 1em;
   color: blue;
   cursor: pointer;
   text-decoration: underline;
@@ -36,31 +31,31 @@ article p.marginalis span.marginalis-expander{
   vertical-align: bottom;
   left: 0px;
 }
-article p.faded_text{
+article.use-marginalis p.faded_text{
   color: #eee;
 }
-article p.faded_text a{
+article.use-marginalis p.faded_text a{
   color: #bdf;
 }
-article p.faded_text span.marginalis-expander{
+article.use-marginalis p.faded_text span.marginalis-expander{
   color: #bdf;
 }
-article span.faded_text{
+article.use-marginalis span.faded_text{
   color: #eee;
 }
 
 
 /* the "normal" colors */
-article .not_faded_text{
+article.use-marginalis .not_faded_text{
   color: #222;
 }
-article p.not_faded_text{
+article.use-marginalis p.not_faded_text{
   color: #222;
 }
-article .not_faded_text a{
+article.use-marginalis .not_faded_text a{
   color: blue;
 }
-article a.not_faded_text{
+article.use-marginalis a.not_faded_text{
   color: blue;
 }
 
