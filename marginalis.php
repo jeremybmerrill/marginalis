@@ -37,5 +37,8 @@ SOFTWARE.
 ?>
 <?php
 wp_enqueue_style("marginalis", plugins_url('marginalis/marginalis.css' , dirname(__FILE__) ));
-wp_enqueue_script("marginalis", plugins_url('marginalis/marginalis.js' , dirname(__FILE__)), array(), false, true );
+wp_enqueue_script("raphael", plugins_url('marginalis/raphael-min.js' , dirname(__FILE__)), array("jquery"), false, true );
+wp_enqueue_script("underscore", plugins_url('marginalis/underscore-min.js' , dirname(__FILE__)), array(), false, true );
+wp_enqueue_script("marginalis", plugins_url('marginalis/marginalis.js' , dirname(__FILE__)), array("jquery", "raphael", "underscore"), false, true );
+
 ?>
