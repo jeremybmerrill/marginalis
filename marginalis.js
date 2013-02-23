@@ -2,7 +2,7 @@ jQuery(function(){
 
   var ARROW_COLOR = "#999"
 
-  var article = jQuery('article')
+  var article = jQuery('article.use-marginalis')
   article_left = article.offset()["left"];
   article_bottom = article.offset()["top"] + article.height();
   article_top = article.offset()["top"];
@@ -11,7 +11,7 @@ jQuery(function(){
   //var conline1 = paper.path("M100,500L0,250");
   //var conline2 = paper.path("M100,0L0,250");
   //var conline3 = paper.path("M50,125l0,250");
-  _(jQuery('article a')).each(function(self_a){
+  _(article.find('a')).each(function(self_a){
     split_anchor = self_a.href.split("#");
     if(split_anchor.length >= 2){
       var target_id = "#" + split_anchor[split_anchor.length-1];
@@ -51,12 +51,12 @@ jQuery(function(){
 
     }
   });
-  _(jQuery('article p.marginalis')).each(function(p_marginalis){ 
+  _(article.find('p.marginalis')).each(function(p_marginalis){
     var pertains_to = jQuery(jQuery(p_marginalis).data('target'));
     if(pertains_to.length == 0){
       throw new TypeError("The target of one of your marginalia " + jQuery(p_marginalis).data('target') + " could not be found!");
     }
-    jQuery(p_marginalis).css("top", (pertains_to.offset()["top"]) - jQuery('article').offset()["top"] );
+    jQuery(p_marginalis).css("top", (pertains_to.offset()["top"]) - article.offset()["top"] );
 
     marginalia_line_height = parseInt(jQuery(p_marginalis).css("line-height"));
     if(jQuery(p_marginalis).height() > 3.2 * marginalia_line_height){
@@ -69,7 +69,7 @@ jQuery(function(){
 
   //highlight a marginalis
   var scale_factor = 1.5
-  _(jQuery('article p.marginalis')).each(function(marginalis){
+  _(article.find('p.marginalis')).each(function(marginalis){
     jQuery(marginalis).on('mouseover', function(e){
       if( jQuery(e.target).hasClass("marginalis")){
         mouseovered_marginalis = jQuery(e.target);
@@ -88,8 +88,8 @@ jQuery(function(){
 
       //fade other stuff
       jQuery('path').attr("stroke", "#eee");
-      //jQuery('article p').not('.marginalis').addClass('faded_text');
-      jQuery('article p').addClass('faded_text');
+      //article.find('p').not('.marginalis').addClass('faded_text');
+      article.find('p').addClass('faded_text');
       mouseovered_marginalis.removeClass('faded_text')
       var pertains_to = jQuery(mouseovered_marginalis.data('target'));
       pertains_to.addClass('not_faded_text');
@@ -99,7 +99,7 @@ jQuery(function(){
   });
 
   //return to normal view.
-  _(jQuery('article p.marginalis')).each(function(marginalis){
+  _(article.find('p.marginalis')).each(function(marginalis){
     jQuery(marginalis).on('mouseout', function(e){
       if( jQuery(e.target).hasClass("marginalis")){
         mouseovered_marginalis = jQuery(e.target);
@@ -112,12 +112,12 @@ jQuery(function(){
       //mouseovered_marginalis.css("left", (parseInt(mouseovered_marginalis.css("left")) + 70));
       var pertains_to = jQuery(mouseovered_marginalis.data('target'));
       mouseovered_marginalis.css("overflow", "hidden");
-      mouseovered_marginalis.css("top", pertains_to.offset()["top"] - jQuery('article').offset()["top"] );        
+      mouseovered_marginalis.css("top", pertains_to.offset()["top"] - article.offset()["top"] );        
       mouseovered_marginalis.css("height", 3.2 * marginalia_line_height);
 
       //unfade everything else
       jQuery('path').attr("stroke", "#555");
-      jQuery('article p').removeClass('faded_text');
+      article.find('p').removeClass('faded_text');
       var pertains_to = jQuery(mouseovered_marginalis.data('target'));
       pertains_to.removeClass('not_faded_text');
 
