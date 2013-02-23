@@ -17,3 +17,4 @@ Written text has all sorts of non-linear tools, like writing or drawing in the m
 5. When a margin note is clicked, center it. (Perhaps only for long margin notes)
 6. Build a totally kick-ass kidpix-like palette of awesome animals, saints, angels, dragons and other margin-dwelling creatures to be pasted all willy-nilly throughout the user's page's margins. (Unfortunately, not really)
 7. Respect (and respond to) the pre-existing font size, font-family, article width, etc.
+8. Add to WP plugin code to disable <p> tag stripping (which breaks marginalis) http://wordpress.stackexchange.com/questions/10656/editor-removes-p-tags
